@@ -6,32 +6,42 @@
     <div class="dashboard">
       <input id="search-field" type="text" placeholder="Suche nach Notizen" >
     </div>
-    <div class="btn">
+    <div>
+      <AllNotes></AllNotes>
+    </div>
+    <div class="btn" @click="openAddNotes()">
        <div class="plus-btn">
           +
        </div>
     </div>
   </div>
-  <div v-if="isAddNotesOpen">
-    <AddNotes />
+  <div v-if="this.isAddNotesOpen">
+    <AddNotes></AddNotes>
   </div>
 </template>
 
 <script>
 
 import AddNotes from './components/AddNotes.vue';
-import Notes from './components/Notes.vue';
+import AllNotes from './components/AllNotes.vue';
 
 export default {
 
   name: 'App',
   components: {
-    Notes,
+    AllNotes,
     AddNotes
   },
-
-  isAddNotesOpen: false
-
+  data() {
+    return {
+      isAddNotesOpen: false,
+    }
+  },
+  methods: {
+    openAddNotes() {
+      this.isAddNotesOpen = true;
+    }
+  }
 }
 </script>
 
