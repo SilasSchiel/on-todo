@@ -16,7 +16,7 @@
     </div>
   </div>
   <div v-if="this.isAddNotesOpen">
-    <AddNotes></AddNotes>
+    <AddNotes @close="isAddNotesOpen = false"></AddNotes>
   </div>
 </template>
 
@@ -53,7 +53,6 @@ export default {
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
 }
 
 .body {
